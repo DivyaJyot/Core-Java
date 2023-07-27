@@ -1,4 +1,5 @@
 package com.divya.JDBC;
+
 import java.sql.*;
 
 public class MySQLConnection {
@@ -24,8 +25,14 @@ public class MySQLConnection {
         MySQLConnection mySQLConnection= new MySQLConnection();
         try(PreparedStatement ps=mySQLConnection.con.prepareStatement(selectSQL)){
             ResultSet rs = ps.executeQuery();
-            System.out.println(rs);
-            rs.getArray(0);
+           while(rs.next()){
+               int id=rs.getInt("user_id");
+               String date= String.valueOf(rs.getDate("time_stamp"));
+               int amount= rs.getInt("amount");
+               Purchase p=new Purchase(id,date,amount);
+               System.out.println(p);
+           }
+
         } catch (SQLException e) {
             e.printStackTrace();
         }
