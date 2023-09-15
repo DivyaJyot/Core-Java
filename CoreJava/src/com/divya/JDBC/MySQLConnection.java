@@ -10,9 +10,6 @@ public class MySQLConnection {
        try{
            Class.forName("com.mysql.cj.jdbc.Driver");
            con= DriverManager.getConnection("jdbc:mysql://localhost:3306/sql_store","root","abc@123");
-          /* ("jdbc:mysql://localhost/test?" +
-                   "user=minty&password=greatsqldb");*/
-          // "jdbc:mysql://localhost:3306/sonoo","root","root"); ;
            System.out.println("connection ok.");
         }
        catch(Exception e){
@@ -23,8 +20,13 @@ public class MySQLConnection {
     public static void main(String[] args) {
         String selectSQL= "SELECT * FROM Purchases";
         MySQLConnection mySQLConnection= new MySQLConnection();
-        try(PreparedStatement ps=mySQLConnection.con.prepareStatement(selectSQL)){
-            ResultSet rs = ps.executeQuery();
+        getAllRecords(selectSQL,mySQLConnection.con);
+
+    }
+
+    private static void getAllRecords(String selectSQL, Connection con) {
+        try(PreparedStatement ps=con.prepareStatement(selectSQL)){
+            ResultSet rs = ps.executeQuery();//executeUpdate() for insert, update & delete
            while(rs.next()){
                int id=rs.getInt("user_id");
                String date= String.valueOf(rs.getDate("time_stamp"));
@@ -36,6 +38,5 @@ public class MySQLConnection {
         } catch (SQLException e) {
             e.printStackTrace();
         }
-
     }
 }
