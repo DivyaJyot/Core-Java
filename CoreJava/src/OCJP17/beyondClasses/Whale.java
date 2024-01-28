@@ -1,2 +1,4 @@
-package OCJP17.beyondClasses;public class Whale {
+package OCJP17.beyondClasses;
+
+public class Whale {
 }

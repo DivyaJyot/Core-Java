@@ -6,5 +6,6 @@ public class MainTest {
         Car car= new Car("a2345","Divya");
         System.out.println(car.owner());
         System.out.println(car.regNo());
+        car.getNewCar();
     }
 }

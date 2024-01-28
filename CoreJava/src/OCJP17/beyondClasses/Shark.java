@@ -1,2 +1,4 @@
-package OCJP17.beyondClasses;public class Shark {
+package OCJP17.beyondClasses;
+
+public final class Shark extends Fish {
 }
