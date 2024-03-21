@@ -10,8 +10,6 @@ import java.time.ZoneId;
 import java.time.ZonedDateTime;
 
 public class NIO {
-
-
    public static void main(String[] args) {
       NIO nio= new NIO();
       nio.copyFile();
@@ -23,15 +21,17 @@ public class NIO {
       Path target=Path.of("C:\\Users\\Divya\\Desktop\\Shakti\\abc.docx");
       Path classFile=Path.of("C:\\Users\\Divya\\Desktop\\Code\\Projects_Divya\\Core-Java\\CoreJava\\bin\\multithreading\\Thread1.class");
       Path src1= Paths.get("C:\\Program Files\\Java\\jdk-17\\lib\\ct.sym");
-      Path target1=Paths.get("C:\\Users\\Divya\\Desktop\\Code\\Projects_Divya\\Core-Java\\CoreJava\\src\\com\\divya\\io\\NIOTest.java");
+      Path target1=Paths.get("C:\\Users\\Divya\\Desktop\\Code\\Projects_Divya\\Core-Java\\CoreJava\\src\\com\\divya\\io\\ct.sym");
 
       try{
+         Path src2= Path.of("C:\\Users\\Divya\\Desktop\\shakt\\..\\Cycling journey_Shakti.docx");
+         boolean x= Files.isSameFile(src,src2);
          checkAttribute(src);
          checkAttribute(classFile);
          checkAttribute(target);
          checkAttribute(src1);
-         checkAttribute(target1);
-         Files.copy(src1, target1,
+        // checkAttribute(target1);
+         Path p = Files.copy(src1, target1,
                  StandardCopyOption.COPY_ATTRIBUTES);
        //  Files.copy(src, target,
          //        StandardCopyOption.REPLACE_EXISTING);
@@ -59,6 +59,7 @@ public class NIO {
       System.out.println("Files.isRegularFile(path)"+Files.isRegularFile(path));
       System.out.println("Files.isSymbolicLink(path)"+Files.isSymbolicLink(path));
       System.out.println("Files.isHidden(path)"+Files.isHidden(path));
+      System.out.println("Files.owner(path)"+Files.getOwner(path));
       long epoch = Files.getLastModifiedTime(path).toMillis();
       System.out.println(epoch);
       ZonedDateTime zdt= FileTime.fromMillis(epoch).toInstant().atZone(ZoneId.of("Asia/Kolkata"));

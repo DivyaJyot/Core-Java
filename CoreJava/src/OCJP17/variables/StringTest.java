@@ -8,6 +8,11 @@ public class StringTest {
         String world="world";
         String b= world.substring(1,2);
         System.out.println("result is"+b);
+        StringBuilder sb= new StringBuilder("12");
+        sb.append("3456",1,3);
+        sb.insert(0,new char[]{'1','0','c','b','3','m','n'},2,3);
+        System.out.println(sb);
+
     }
 
 }

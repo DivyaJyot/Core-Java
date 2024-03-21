@@ -6,17 +6,17 @@ public class StreamExamples {
     static public void main(String... args) {
         //Generate finite Stream
         try {
-            Stream<Integer> finiteStream = Stream.iterate(1, n -> n < 100, n -> n + 2);
+           // Stream<Integer> finiteStream = Stream.iterate(1, n -> n < 100, n -> n + 2);
             //  finiteStream.forEach(v -> System.out.println(v));
             // System.out.println("count is"+finiteStream.count());
             //System.out.println("min is-"+finiteStream.min((i1,i2)->i1-i2).get());
            // System.out.println("max is  " + finiteStream.max((i1, i2) -> i1 - i2).get());
-            System.out.println("count is"+finiteStream.findAny());
+           // System.out.println("count is"+finiteStream.findAny());
             //  Generating infinite Stream
             //generateInfiniteStream();
 
-            // generateInfiniteStream2();
-            //   generateInfiniteStream3();
+           // generateInfiniteStream2();
+               generateInfiniteStream3();
         } catch (Exception e) {
             throw new RuntimeException(e);
         }
